@@ -1,0 +1,7 @@
+# Auto-detect text files and normalize line endings
+* text=auto
+
+# Keep LF in C source files
+*.c text eol=lf
+*.h text eol=lf
+*.make text eol=lf

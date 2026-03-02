@@ -1,0 +1,31 @@
+let priceSum = 0;
+let inStockProductsCount = 0;
+for (const product of products) {
+ if (product.inStock) {
+ priceSum += product.price;
+ inStockProductsCount++;
+ }
+}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+</head>
+    <body>
+        <script>
+            let priceSum = 0;
+            let inStockProductsCount = 0;
+            
+            for (const product of products) {
+            if (product.inStock) {
+            priceSum += product.price;
+            inStockProductsCount++;
+            }
+            
+        }
+        </script>
+    </body>
+</html>

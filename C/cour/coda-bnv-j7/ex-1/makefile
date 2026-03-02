@@ -1,0 +1,17 @@
+# Makefile
+
+NAME = 	ex-1
+
+SRCS = 	main.c \
+		str_len.c \
+		str_cpy.c
+
+all :	$(NAME)
+
+$(NAME):	$(SRCS)
+	gcc $(SRCS) -o $(NAME)
+
+fclean:
+	rm -f $(NAME)
+
+re: fclean all

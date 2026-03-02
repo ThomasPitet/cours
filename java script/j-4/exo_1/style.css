@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+.elusive-button {
+    position: fixed;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+    transition: all 0.1s ease-out;
+    z-index: 100;
+}
+
+.elusive-button:hover {
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+    transform: scale(1.05);
+}
+
+.elusive-button:active {
+    transform: scale(0.95);
+}
+
+.click-count {
+    margin-top: 30px;
+    font-size: 1.3em;
+    color: #667eea;
+    font-weight: bold;
+}
+
+#click-counter {
+    color: #764ba2;
+    font-size: 1.5em;
+}

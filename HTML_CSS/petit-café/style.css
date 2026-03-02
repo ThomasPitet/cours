@@ -1,0 +1,487 @@
+@import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    width: 100%;
+}
+
+header img {
+    max-height: 50px;
+    width: auto;
+}
+
+header img[src*="burger"] {
+    width: 20px;
+    height: 12px;
+}
+
+header nav {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
+
+header nav a {
+    text-decoration: none;
+    color: #000;
+}
+
+
+.background-image {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    overflow: hidden;
+}
+
+.inter {
+    font-family: 'Inter', sans-serif;
+}
+
+.sansita {
+    font-family: 'Sansita Swashed', cursive;
+}
+
+.background-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.background-image p,
+.background-image h1,
+.background-image h3 {
+    position: absolute;
+    text-align: left;
+    left: 10%;
+}
+
+.background-image p {
+    top: 30%;
+    font-size: 24px;
+    color: #e9bd8c;
+    max-width: 300px;
+}
+
+.background-image h1 {
+    top: 40%;
+    font-size: 36px;
+    color: #ffffff;
+    max-width: 400px;
+}
+
+.background-image h3 {
+    top: 60%;
+    font-size: 20px;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 90px;
+    background-color: #933c24;
+    padding: 10px 20px;
+    display: inline-block;
+}
+
+
+h2 {
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+
+.groupir-text {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 1.5rem 0;
+}
+
+.groupir-imag {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.produit-groupir-imag {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.background-produit {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+}
+
+.produit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;       
+    height: auto;
+    z-index: 2;
+}
+
+.groupir-pi {
+    position: absolute;
+    left: 24px;
+    bottom: 100px;
+    display: flex;
+    align-items: center;
+    gap: 400px;
+    color: #ffffff;
+    z-index: 3;
+    font-size: 30px;
+    padding-left: 30px
+        
+}
+
+.groupir-pi p.prix-info {
+    width: auto;
+    border-radius: 0;
+    margin: 0;
+}
+
+.groupir-pi img.prix-info {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.groupir-na {
+    position: absolute;
+    left: 50px;
+    bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 200px;
+    color: #ffffff;
+    z-index: 3;
+    font-size: 20px;
+}
+
+.nom-ajouter {
+    margin: 0;
+    text-align: right;
+}
+
+.ajouter {
+    display: inline-block;
+    background: #933c24;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 22px;
+    font-size: 16px;
+    border-radius: 6px;
+    letter-spacing: 0.5px;
+    width: auto;
+}
+
+
+.background-blanc {
+    position: relative;
+    background-image: url(image/fond_blanc.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+    height: 600px;
+}
+
+.groupir-2pe {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    gap: 60px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 43%;
+}
+
+.pourcentage {
+    position: absolute;
+    color: #933c24;
+    width: 600px;
+    font-size: 250%;
+    padding: 0;
+    margin: 0;
+}
+
+.offre {
+    position: absolute;
+    color: #5D5D5D;
+    width: 550px;
+    font-size: 242%;
+    padding: 0;
+    margin: 0;
+    top: 200px;
+}
+
+.savoir {
+    position: absolute;
+    display: inline-block;
+    background: linear-gradient(135deg, #933c24, #933c24);
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 14px 20px;  
+    margin: 1px;
+    font-size: 18px;
+    border-radius: 200px;
+    width: 200px;
+    align-self: center;
+    top: 400px;
+}
+
+.decouvrir {
+    text-align: center;
+}
+
+.gmcp {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    color: black;
+}
+
+.gmcp a {
+   text-decoration: none;
+    color: #000; 
+}
+
+.gateau {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+    text-decoration-color: #933c24;
+}
+
+.espace {
+    margin-top: 30px;
+    text-decoration-color: #933c24;
+}
+.background-noir {
+    position: relative;
+    background-image: url(fond_noir.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+
+
+.groupir-pml {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    gap: 60px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.propos {
+    position: absolute;
+    color: #ffffff;
+    width: 600px;
+    font-size: 250%;
+    padding: 0;
+    margin: 0;
+    align-self: center;
+}
+
+.maison {
+    position: absolute;
+    color: #B9B9B9;
+    width: 550px;
+    font-size: 220%;
+    align-self: center;
+    top: 100px;
+}
+
+.lire {
+    position: absolute;
+    display: inline-block;
+    background: linear-gradient(135deg, #933c24, #933c24);
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 14px 20px;  
+    margin: 1px;
+    font-size: 18px;
+    border-radius: 200px;
+    width: 200px;
+    align-self: center;
+    top: 500px;
+}
+
+.petits-plaisirs {
+    text-align: center;
+}
+
+.plaisir-petit img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 100px
+}
+
+.plaisir-petit {
+    position: relative;
+    align-items: center;
+    width: 500px;
+    left: 12%;
+    object-fit: cover;
+}
+
+.groupir-np {
+    position: absolute;
+    left: 10px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    gap: 340px;
+    color: #000;
+    z-index: 3;
+    font-size: 20px;
+}
+
+@media screen and (max-width: 480px) {
+
+    /* HEADER */
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.5rem;
+        padding-inline: 0.5rem;
+    }
+
+    header img {
+        max-height: 40px;
+    }
+
+    header nav {
+        gap: 0.8rem;
+    }
+
+    header nav a {
+        font-size: 0.8rem;
+    }
+
+    /* BANNIÈRE */
+    .background-image {
+        height: 60vh;
+    }
+
+    .background-image p,
+    .background-image h1,
+    .background-image h3 {
+        width: 90%;
+        left: 5%;
+    }
+
+    .background-image p {
+        top: 25%;
+        font-size: 16px;
+    }
+
+    .background-image h1 {
+        top: 35%;
+        font-size: 22px;
+    }
+
+    .background-image h3 {
+        top: 55%;
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    /* CARTES PRODUITS */
+    .groupir-text,
+    .groupir-imag,
+    .produit-groupir-imag {
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+
+    .produit {
+        width: 60%;             
+    }
+
+    .groupir-pi {
+        left: 16px;
+        bottom: 24px;
+        font-size: 14px;
+    }
+
+    .groupir-na {
+        right: 16px;
+        bottom: 16px;
+    }
+
+    .ajouter {
+        font-size: 14px;
+        padding: 8px 18px;
+    }
+
+    /* PROMO */
+    .background-blanc {
+        background-attachment: scroll;
+        background-size: cover;
+    }
+
+    .groupir-2pe {
+        padding-top: 30px;
+        padding-bottom: 30px;
+        padding-left: 0;
+        text-align: center;
+        align-items: center;
+    }
+
+    .pourcentage,
+    .offre,
+    .savoir {
+        width: 90%;
+        max-width: 320px;
+        padding: 0;
+    }
+
+    .pourcentage {
+        font-size: 150%;
+    }
+
+    .offre {
+        font-size: 120%;
+    }
+
+    .savoir {
+        font-size: 14px;
+        width: auto;
+        margin-top: 10px;
+    }
+}

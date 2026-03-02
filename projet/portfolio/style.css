@@ -1,0 +1,268 @@
+/* ============================================================================
+   BASE STYLES
+   ============================================================================ */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: #f5f7fa;
+    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ============================================================================
+   BASIC CONTAINER
+   ============================================================================ */
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* ============================================================================
+   HEADERS
+   ============================================================================ */
+
+h1 {
+    color: #0052cc;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+h2 {
+    color: #0052cc;
+    font-size: 1.5rem;
+    margin: 1.5rem 0 0.5rem;
+    font-weight: 600;
+}
+
+h3 {
+    color: #0052cc;
+    font-size: 1.1rem;
+    margin: 1rem 0 0.5rem;
+    font-weight: 600;
+}
+
+/* ============================================================================
+   PROFILE SECTION
+   ============================================================================ */
+
+.profile-section {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: #fff;
+    border-left: 4px solid #0052cc;
+    margin: 2rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #0052cc;
+}
+
+/* ============================================================================
+   CARDS & BOXES
+   ============================================================================ */
+
+.petit-cadre {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-left: 4px solid #0052cc;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.gros-cadre {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.skill-card {
+    background-color: #fff;
+    padding: 2rem;
+    border-left: 4px solid #0052cc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* ============================================================================
+   OBJECTIVES
+   ============================================================================ */
+
+.objectives-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.objective-section {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-left: 4px solid #0052cc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.objective-section ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.objective-section li {
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+/* ============================================================================
+   PARAGRAPHE
+   ============================================================================ */
+
+p {
+    color: #555;
+    margin: 1rem 0;
+}
+
+p:empty {
+    display: none;
+}
+
+/* ============================================================================
+   BUTTONS
+   ============================================================================ */
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 5px;
+    background-color: #0052cc;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0039a6;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 82, 204, 0.2);
+}
+
+/* ============================================================================
+   CONTACT FORM
+   ============================================================================ */
+
+.contact-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+.contact-info {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-left: 4px solid #0052cc;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.contact-info a {
+    color: #0052cc;
+    text-decoration: none;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 0.5rem 0.5rem 0;
+    transition: all 0.2s ease;
+    font-weight: 600;
+}
+
+.contact-info a:hover {
+    color: #0039a6;
+    text-decoration: underline;
+}
+
+.contact-form {
+    background-color: #fff;
+    padding: 2rem;
+    border-left: 4px solid #0052cc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fafbfc;
+    color: #333;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #0052cc;
+    background-color: #fff;
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+/* ============================================================================
+   MISC
+   ============================================================================ */
+
+ul {
+    color: #555;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+.numagique {
+    align-items: center;
+}

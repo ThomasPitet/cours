@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Système de Crafting Asynchrone</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 30px;
+        }
+
+        .section {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+        }
+
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+        }
+
+        .resource-section {
+            display: grid;
+            gap: 15px;
+        }
+
+        .resource-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            border: 2px solid #e0e0e0;
+        }
+
+        .resource-label {
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .resource-count {
+            font-size: 1.3em;
+            color: #764ba2;
+            font-weight: bold;
+        }
+
+        .button-grid {
+            display: grid;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-resource {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-resource:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-craft {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .btn-craft:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(245, 87, 108, 0.4);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+            padding: 8px 15px;
+            font-size: 0.9em;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+        }
+
+        .craft-section {
+            grid-column: 1 / -1;
+        }
+
+        .craft-item {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            border: 2px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .craft-info h3 {
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .craft-info p {
+            font-size: 0.9em;
+            color: #666;
+            margin: 3px 0;
+        }
+
+        .log-container {
+            grid-column: 1 / -1;
+            display: flex;
+            flex-direction: column;
+            height: 400px;
+        }
+
+        #crafting-log {
+            background: #1a1a2e;
+            color: #00ff88;
+            padding: 20px;
+            border-radius: 6px;
+            overflow-y: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            flex: 1;
+            border: 2px solid #667eea;
+        }
+
+        #crafting-log::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        #crafting-log::-webkit-scrollbar-track {
+            background: #0f0f1e;
+        }
+
+        #crafting-log::-webkit-scrollbar-thumb {
+            background: #667eea;
+            border-radius: 4px;
+        }
+
+        .log-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+
+            .craft-section {
+                grid-column: 1;
+            }
+
+            .header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>⛏️ Système de Crafting Asynchrone 🔨</h1>
+            <p>Récupérez des ressources et fabriquez des objets!</p>
+        </div>
+
+        <div class="content">
+            <!-- Section Ressources Brutes -->
+            <div class="section">
+                <h2>🌳 Récolte de Ressources</h2>
+                <div class="button-grid">
+                    <button class="btn-resource" id="collect-fer">⛏️ Récupérer du Fer Brut</button>
+                    <button class="btn-resource" id="collect-bois">🪵 Récupérer du Bois</button>
+                </div>
+            </div>
+
+            <!-- Section Inventaire -->
+            <div class="section">
+                <h2>📦 Inventaire</h2>
+                <div class="resource-section">
+                    <div class="resource-item">
+                        <span class="resource-label">⛏️ Fer Brut</span>
+                        <span class="resource-count" id="fer-count">0</span>
+                    </div>
+                    <div class="resource-item">
+                        <span class="resource-label">🪵 Bois</span>
+                        <span class="resource-count" id="bois-count">0</span>
+                    </div>
+                    <div class="resource-item">
+                        <span class="resource-label">📦 Planche</span>
+                        <span class="resource-count" id="planche-count">0</span>
+                    </div>
+                    <div class="resource-item">
+                        <span class="resource-label">🎋 Bâton</span>
+                        <span class="resource-count" id="baton-count">0</span>
+                    </div>
+                    <div class="resource-item">
+                        <span class="resource-label">🔶 Lingot de Fer</span>
+                        <span class="resource-count" id="lingot-count">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section Crafting -->
+            <div class="section craft-section">
+                <h2>🔨 Lancer le Crafting</h2>
+                <div class="button-grid">
+                    <div class="craft-item">
+                        <div class="craft-info">
+                            <h3>Planche</h3>
+                            <p>Coût: 1 Bois | Temps: 200ms | Rend: 4 unités</p>
+                        </div>
+                        <button class="btn-craft" id="craft-planche">Crafter</button>
+                    </div>
+
+                    <div class="craft-item">
+                        <div class="craft-info">
+                            <h3>Bâton</h3>
+                            <p>Coût: 1 Planche | Temps: 200ms | Rend: 2 unités</p>
+                        </div>
+                        <button class="btn-craft" id="craft-baton">Crafter</button>
+                    </div>
+
+                    <div class="craft-item">
+                        <div class="craft-info">
+                            <h3>Lingot de Fer</h3>
+                            <p>Coût: 1 Fer Brut | Temps: 2s | Rend: 1 unité</p>
+                        </div>
+                        <button class="btn-craft" id="craft-lingot">Crafter</button>
+                    </div>
+
+                    <div class="craft-item">
+                        <div class="craft-info">
+                            <h3>⚔️ Épée</h3>
+                            <p>Coût: 1 Bâton + 2 Lingots de Fer | Temps: 5s | Rend: 1 unité</p>
+                        </div>
+                        <button class="btn-craft" id="craft-epee">Crafter</button>
+                    </div>
+
+                    <div class="craft-item">
+                        <div class="craft-info">
+                            <h3>⛏️ Pioche</h3>
+                            <p>Coût: 2 Bâtons + 3 Lingots de Fer | Temps: 5s | Rend: 1 unité</p>
+                        </div>
+                        <button class="btn-craft" id="craft-pioche">Crafter</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section Journal -->
+            <div class="log-container">
+                <div class="log-header">
+                    <h2 style="color: #667eea; margin: 0;">📋 Journal de Crafting</h2>
+                    <button class="btn-secondary" id="clear-log">Effacer</button>
+                </div>
+                <div id="crafting-log"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="mc.js"></script>
+</body>
+</html>

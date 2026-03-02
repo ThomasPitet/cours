@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <body>
+        <script>
+            let age = prompt("age: ");
+                    
+            if (age >= 18) {
+                console.log("Il est majeur");
+                let montant = parseFloat(prompt("Montant: ")); 
+                let pourboir = parseFloat(prompt("Pourboire: "));
+                let total = montant * (pourboir/100 + 1);
+                alert(total);
+            } else if (age < 18) {
+                console.log("Il est mineur");
+            }
+        </script>
+    </body>
+</html>

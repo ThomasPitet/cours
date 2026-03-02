@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+</head>
+    <body>
+        <script>
+
+function calculatePriceTTC(priceHT, vatRate) {
+    // Calcule le prix TTC à partir du prix HT et du taux de TVA
+    // Formule : priceHT * (1 + vatRate / 100)
+    return priceHT * (1 + vatRate / 100);
+}
+// Exemples d'utilisation :
+console.log(calculatePriceTTC(100, 20)); // Devrait afficher 120
+console.log(calculatePriceTTC(50, 5.5)); // Devrait afficher 52.75
+
+        </script>
+    </body>
+</html>

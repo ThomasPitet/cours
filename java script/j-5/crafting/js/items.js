@@ -1,0 +1,51 @@
+export const items = [
+  {
+    id: 1,
+    name: "Bois",
+    image: "https://minecraft.wiki/images/Oak_Wood_%28UD%29_JE7_BE2.png",
+    gatherable: true,
+    craftable: false,
+  },
+  {
+    id: 2,
+    name: "Fer",
+    image: "https://minecraft.wiki/images/Iron_Ore_JE6_BE4.png",
+    gatherable: true,
+    craftable: false,
+  },
+  {
+    id: 3,
+    name: "Planche",
+    image: "https://minecraft.wiki/images/Oak_Planks.png",
+    gatherable: false,
+    craftable: true,
+  },
+  {
+    id: 4,
+    name: "Bâton",
+    image: "https://minecraft.wiki/images/Stick_JE1_BE1.png",
+    gatherable: false,
+    craftable: true,
+  },
+  {
+    id: 5,
+    name: "Lingot de Fer",
+    image: "https://minecraft.wiki/images/Iron_Ingot_JE3_BE2.png",
+    gatherable: false,
+    craftable: true,
+  },
+  {
+    id: 6,
+    name: "Épée de Fer",
+    image: "https://minecraft.wiki/images/Iron_Sword_JE2_BE2.png",
+    gatherable: false,
+    craftable: true,
+  },
+  {
+    id: 7,
+    name: "Pioche de Fer",
+    image: "https://minecraft.wiki/images/Iron_Pickaxe_JE3_BE2.png",
+    gatherable: false,
+    craftable: true,
+  },
+];

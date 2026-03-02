@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <body>
+        <div id="user-infos"></div>
+            <script>
+                // 1 demande info personne 
+                const firstname = prompt("Prenom : ");
+                const age = prompt ("Age : ");
+
+                // 2 récuperation élément où inserer 
+                const element = document.getElementById("user-infos"); 
+
+                // 3 ajout des infos dans la page 
+                element.innerHTML = `
+                    <p>je m'appelle ${firstname} et j'ai ${age} ans </p>
+                `;
+            </script>
+    </body>
+</html>
+
+
+
